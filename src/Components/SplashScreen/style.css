@@ -1,0 +1,15 @@
+.splashScreen{
+    background-image: url('http://localhost:3000/Assets/bg-robot.png');
+    background-repeat: repeat-x;
+    background-position: left -5px bottom 150px;
+    height: 100vh;
+}
+
+.footer{
+    background-color: #6a10e8;
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+    width: 100vw;
+    margin-left: -0.75rem;
+}
