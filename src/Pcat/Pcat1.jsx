@@ -6,16 +6,6 @@ import ReducerActions from '../Helpers/ReducerActions';
 
 
 const Pcat1 = ({state, dispatch}) => {
-   /* useEffect(() => {
-        dispatch({type : ReducerActions.INITREQUEST,
-            payload : { mobile : state.requestData.mobile,
-                        contact_uuid : state.requestData.contact_uuid,
-                        pcat : state.requestData.pcat,
-                        office : '',
-                        t1 : ''
-                        }
-                    });
-    }, []);*/
 
     const extraFieldChange = (e) => {
         dispatch({type : ReducerActions.UPDATEEXTRAFIELD, payload : {[e.target.id] : e.target.value}})
