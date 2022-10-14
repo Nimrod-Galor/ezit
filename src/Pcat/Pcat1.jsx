@@ -6,33 +6,46 @@ import ReducerActions from '../Helpers/ReducerActions';
 
 
 const Pcat1 = ({state, dispatch}) => {
-    useEffect(() => {
-        dispatch({type : ReducerActions.INITREQUEST, payload : {mobile : state.requestData.mobile,
-            contact_uuid : state.requestData.contact_uuid,
-            pcat : state.requestData.pcat,
-            office : 't1 office',
-            t1 : 't1 value'}});
-    }, []);
+   /* useEffect(() => {
+        dispatch({type : ReducerActions.INITREQUEST,
+            payload : { mobile : state.requestData.mobile,
+                        contact_uuid : state.requestData.contact_uuid,
+                        pcat : state.requestData.pcat,
+                        office : '',
+                        t1 : ''
+                        }
+                    });
+    }, []);*/
+
+    const extraFieldChange = (e) => {
+        dispatch({type : ReducerActions.UPDATEEXTRAFIELD, payload : {[e.target.id] : e.target.value}})
+    }
 
     return(
         <>
         <div className="row g-2">
             <div className="col-md">
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="office" placeholder="office" />
+                    <input type="text" className="form-control" id="office" value={state.requestData.office || ''} onChange={(e) => extraFieldChange(e)} placeholder="office" required />
                     <label htmlFor="office">מיקום חדר</label>
+                </div>
+                <div className="invalid-feedback">
+                    הזן את מיקום החדר
                 </div>
             </div>
             <div className="col-md">
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="t1" placeholder="t1" />
+                    <input type="text" className="form-control" id="t1" value={state.requestData.t1 || ''} onChange={(e) =>  extraFieldChange(e)} placeholder="t1" required />
                     <label htmlFor="t1">t1</label>
+                    <div className="invalid-feedback">
+                        הזן את השדה t1
+                    </div>
                 </div>
             </div>
         </div>
         <div className="row g-1">
             <div className="col-md">
-                <button type="button" className="btn btn-success mb-3 float-start">שלח</button>
+                <button type="submit" className="btn btn-success mb-3 float-start">שלח</button>
             </div>
         </div>
         </>

@@ -1,6 +1,7 @@
 const ReducerActions = {
     UPDATESTATE : 'UPDATESTATE',
     UPDATEPCAT : 'UPDATEPCAT',
-    INITREQUEST : 'INITREQUEST'
+    INITREQUEST : 'INITREQUEST',
+    UPDATEEXTRAFIELD : 'UPDATEEXTRAFIELD'
 }
 export default ReducerActions;
