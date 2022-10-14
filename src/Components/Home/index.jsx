@@ -8,12 +8,7 @@ import ReducerActions from '../../Helpers/ReducerActions';
 import AppStatuses from '../../Helpers/AppStatuses';
 import { useEffect } from 'react';
 
-
-
 import Tabs from '../Tabs';
-
-
-
 
 const Home = ({state, dispatch}) => {
     let params = useParams();
@@ -27,10 +22,7 @@ const Home = ({state, dispatch}) => {
      useEffect(() => {
         console.log('useEffect');
         dispatch({type : ReducerActions.UPDATEPCAT, payload : params.pcat});
-        if(params.pcat !== undefined){
-            
-            dispatch({type : ReducerActions.UPDATESTATE, payload : AppStatuses.HOME});
-        }
+        dispatch({type : ReducerActions.UPDATESTATE, payload : AppStatuses.HOME});
      }, [params.pcat]);
     
     

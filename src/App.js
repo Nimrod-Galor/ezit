@@ -37,7 +37,7 @@ function App() {
         
           <Route path="/home" element={<Home state={state} dispatch={dispatch} />} />
           
-          <Route path="/status" element={<Status />} />
+          <Route path="/status" element={<Status state={state} dispatch={dispatch} />} />
 
           <Route path=":pcat" element={<Home state={state} dispatch={dispatch} />} />
       </Routes>

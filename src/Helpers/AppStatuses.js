@@ -1,6 +1,7 @@
 const AppStatuses = {
     APPINIT : 'APPINIT',
-    HOME : 'HOME'
+    HOME : 'HOME',
+    STATUS : 'STATUS'
 }
 
 export default AppStatuses;
