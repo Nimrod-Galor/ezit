@@ -11,10 +11,11 @@ const Reducer = (state, action) => {
         //    return {...state, requestData: {...state.requestData, pcat : action.payload}};
         case ReducerActions.INITREQUEST:
             //console.log('INITREQUEST: ', {...action.payload});
+            let pcat = action.payload === undefined ? "undefined" : action.payload;
             let reqd = { mobile : state.requestData.mobile,
                 contact_uuid : state.requestData.contact_uuid,
-                pcat : action.payload,
-                ...ExtraFields[action.payload]
+                pcat,
+                ...ExtraFields[pcat]
             };
 
             return {...state, AppStatus: AppStatuses.HOME, requestData: {...reqd}};
