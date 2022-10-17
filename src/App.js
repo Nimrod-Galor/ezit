@@ -8,6 +8,7 @@ import Reducer from './Helpers/Reducer';
 import SplashScreen from './Components/SplashScreen';
 import Home from './Components/Home';
 import Status from './Components/Status';
+import NotFound from './Components/NotFound';
 
 const initialState = {
   AppStatus : AppStatuses.APPINIT,
@@ -38,6 +39,8 @@ function App() {
           <Route path="/home" element={<Home state={state} dispatch={dispatch} />} />
           
           <Route path="/status" element={<Status state={state} dispatch={dispatch} />} />
+
+          <Route exact path="/404" element={<NotFound />} />
 
           <Route path=":pcat" element={<Home state={state} dispatch={dispatch} />} />
       </Routes>

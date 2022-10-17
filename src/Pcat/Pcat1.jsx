@@ -16,7 +16,7 @@ const Pcat1 = ({state, dispatch}) => {
         <div className="row g-2">
             <div className="col-md">
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="office" value={state.requestData.office || ''} onChange={(e) => extraFieldChange(e)} placeholder="office" required />
+                    <input type="text" className="form-control" id="office" key="office" value={state.requestData.office || ''} onChange={(e) => extraFieldChange(e)} placeholder="office" required />
                     <label htmlFor="office">מיקום חדר</label>
                 </div>
                 <div className="invalid-feedback">
@@ -25,7 +25,7 @@ const Pcat1 = ({state, dispatch}) => {
             </div>
             <div className="col-md">
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="t1" value={state.requestData.t1 || ''} onChange={(e) =>  extraFieldChange(e)} placeholder="t1" required />
+                    <input type="text" className="form-control" id="t1" key="t1" value={state.requestData.t1 || ''} onChange={(e) =>  extraFieldChange(e)} placeholder="t1" required />
                     <label htmlFor="t1">t1</label>
                     <div className="invalid-feedback">
                         הזן את השדה t1
