@@ -6,7 +6,7 @@ import { useEffect, Suspense, lazy } from 'react';
 
 import ReducerActions from '../../Helpers/ReducerActions';
 import AppStatuses from '../../Helpers/AppStatuses';
-
+import PcatOptions from '../../Helpers/PcatOptions';
 
 
 import Tabs from '../Tabs';
@@ -19,6 +19,16 @@ const Home = ({state, dispatch}) => {
 
     const Pcat = lazy(() => import(`../../Pcat/Pcat${params.pcat}`));
 
+    const getSelectOptions = () => {
+        let group = '';
+        return PcatOptions.map((item, index) => {
+            if(item.group !== group){
+                group = item.group;
+                return(<><optgroup label={item.group} /><option value={item.pcat}>{item.name}</option></>)
+            }
+            return <option value={item.pcat}>{item.name}</option>
+        });
+    }
 
      useEffect(() => {
         console.log('useEffect');
@@ -65,9 +75,8 @@ const Home = ({state, dispatch}) => {
                     <div className="form-floating mb-3">
                         <select className="form-select" id="floatingSelect" value={state.requestData.pcat} onChange={(e) => navigate(`../${e.target.value === 'undefined' ? 'home' : e.target.value}`)} aria-label="Floating label select example" required>
                             <option value="undefined" disabled>בחר</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+
+                            {getSelectOptions()}
                         </select>
                         <label htmlFor="floatingSelect">מהות הפניה</label>
                     </div>
